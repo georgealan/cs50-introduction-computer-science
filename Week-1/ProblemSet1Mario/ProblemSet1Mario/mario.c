@@ -15,7 +15,7 @@ int main(void)
   do
   {
     height = get_int("Height: ");
-  } while (height < 1);
+  } while (height < 1 || height > 8);
  
   printLine(height);
 }
@@ -26,10 +26,7 @@ void printLine(int numberOfLines)
   {
     actualLine++;
     printBlocks(actualLine, numberOfLines);
-    if (actualLine != numberOfLines)
-    {
-      printf("\n");
-    }
+
   } while (actualLine < numberOfLines);
 }
 
@@ -51,15 +48,15 @@ void printBlocks(int line, int numberOfLines)
       arr[i] = space;
       continue;
     }
-    if (i >= (capacity - 2) - whiteSpaces)
+    if (i < (capacity - 2) - whiteSpaces)
     {
-      arr[i] = space;
+      arr[i] = block;
       continue;
     }
-    arr[i] = block;
+
   }
 
   arr[capacity - 1] = '\0';
 
-  printf(arr);
+  printf("%s\n", arr);
 }
