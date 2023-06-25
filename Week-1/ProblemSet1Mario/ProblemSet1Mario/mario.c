@@ -37,10 +37,21 @@ void printBlocks(int line, int numberOfLines)
 {
   int capacity = (numberOfLines * 2) + 3;
   char arr[capacity];
+  int whiteSpaces = numberOfLines - line - 1;
 
   for (int i = 0; i < capacity - 1; i++)
   {
-    if (i == line || i == line + 1)
+    if (i <= whiteSpaces)
+    {
+      arr[i] = space;
+      continue;
+    }
+    if (i == numberOfLines || i == numberOfLines + 1)
+    {
+      arr[i] = space;
+      continue;
+    }
+    if (i >= (capacity - 2) - whiteSpaces)
     {
       arr[i] = space;
       continue;
