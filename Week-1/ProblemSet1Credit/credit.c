@@ -21,15 +21,11 @@ int main()
   int cardNumberLenght = strlen(str); // Get string lenght
 
   // First validation to verify if number lenght is correct with standard
-  if (number < 13 || number > 16)
+  if (cardNumberLenght < 13 || cardNumberLenght > 16)
   {
     printf("INVALID\n");
+    return 0;
   }
-
-  // printf("Value converted to string %s\n", str);
-  // printf("Get long lenght with strlen %d\n", cardNumberLenght);
-
-  // printf("Get individual char in the array %c\n", str[1]);
 
   switch (str[0])
   {
@@ -38,7 +34,8 @@ int main()
       {
         firstDigitIsValid = true;
         cardName = "AMEX";
-      } else
+      } 
+      else
       {
         firstDigitIsValid = false;
       }
@@ -54,7 +51,8 @@ int main()
       {
         firstDigitIsValid = true;
         cardName = "MASTERCARD";
-      } else
+      } 
+      else
       {
         firstDigitIsValid = false;
       }
@@ -79,40 +77,37 @@ int main()
         if (multiply > 9)
         {
           sumFromBegin += (multiply / 10) + (multiply % 10);
-        } else
+        } 
+        else
         {
           sumFromBegin += multiply;
         }
-        
-      } else
+      } 
+      else
       {
         sumFromTheEnd += quotient;
       }
-      
-      // printf("Number %ld, in lenght %d\n", number, i);
-      // printf("Quotient %d, in lenght %d\n", quotient, i);
-    } while (number > 0);
-  } else
-  {
-    printf("INVALID\n");
-    return 0;
-  }
-  
-  resultSum = (sumFromBegin + sumFromTheEnd) % 10;
-  int sumTest = sumFromBegin + sumFromTheEnd;
-  printf("Result sum %d\n", sumTest);
-  if (resultSum == 0)
-  {
-    printf("%s\n", cardName);
-  } else
-  {
-    printf("INVALID\n");
-    return 0;
-  }
+    } 
+    while (number > 0);
 
-  // int testMulti = ((6 * 2) / 10) + ((6 * 2) % 10);
-  // printf("%d\n", testMulti);
-  
+    resultSum = (sumFromBegin + sumFromTheEnd) % 10;
+
+    if (resultSum == 0)
+    {
+      printf("%s\n", cardName);
+      return 0;
+    } 
+    else
+    {
+      printf("INVALID\n");
+      return 0;
+    }
+  } 
+  else
+  {
+    printf("INVALID\n");
+    return 0;
+  }
 }
 
 /*
@@ -123,7 +118,4 @@ Visa uses 13 and 16 digit numbers
 All American Express numbers start with 34 or 37
 MasterCard numbers start with 51, 52, 53, 54, or 55
 Visa numbers start with 4
-
-TODO: Fix loops bugs print wrong results.
-
 */
