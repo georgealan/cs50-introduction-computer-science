@@ -1,5 +1,6 @@
 #include <ctype.h>
 #include <stdio.h>
+#include <string.h>
 #include "cs50.h"
 
 float calc_hours(int hours[], int weeks, char output);
@@ -27,5 +28,15 @@ int main(void)
 // TODO: complete the calc_hours function
 float calc_hours(int hours[], int weeks, char output)
 {
+    float totalOfHours = 0;
+    float averageOfHours = 0;
 
+    for (int i = 0; i < weeks; i++)
+    {
+        totalOfHours += (float) hours[i];
+    }
+    
+    averageOfHours = totalOfHours / weeks;
+
+    return (output == 'T') ? totalOfHours : averageOfHours;
 }
