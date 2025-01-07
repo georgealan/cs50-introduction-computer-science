@@ -30,7 +30,7 @@ int main()
   switch (str[0])
   {
     case '3':
-      if (str[1] == '4' || str[1] == '7')
+      if ((str[1] == '4' || str[1] == '7') && cardNumberLenght == 15)
       {
         firstDigitIsValid = true;
         cardName = "AMEX";
@@ -42,8 +42,15 @@ int main()
       break;
       
     case '4':
-      firstDigitIsValid = true;
-      cardName = "VISA";
+      if(cardNumberLenght == 13 || cardNumberLenght == 16)
+      {
+        firstDigitIsValid = true;
+        cardName = "VISA";
+      }
+      else
+      {
+        firstDigitIsValid = false;
+      }
       break;
 
     case '5':
