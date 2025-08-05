@@ -1,6 +1,0 @@
-<Project>
-  <PropertyGroup>
-    <LLVMInstallDir>C:\LLVM\LLVM-20.1.8</LLVMInstallDir>
-    <LLVMToolsVersion>15.0.0</LLVMToolsVersion>
-  </PropertyGroup>
-</Project>
